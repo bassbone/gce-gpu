@@ -1,0 +1,28 @@
+resources:
+- name: {{ properties['name'] }}
+  type: compute.v1.instance
+  properties:
+    machineType: zones/{{ properties['zone'] }}/machineTypes/{{ properties['instanceType'] }}
+    zone: {{ properties['zone'] }}
+    disks:
+    - deviceName: {{ properties['name'] }}
+      autoDelete: true
+      boot: true
+      initializeParams:
+        sourceImage: projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts
+        diskSizeGb: {{ properties['diskSizeGb'] }}
+    guestAccelerators:
+    - acceleratorType: projects/{{ env['project_number'] }}/zones/{{ properties['zone'] }}/acceleratorTypes/nvidia-tesla-t4
+      acceleratorCount: 1
+    tags:
+      items:
+      - myip
+    scheduling:
+      onHostMaintenance: TERMINATE
+      preemptible: false
+    networkInterfaces:
+    - network: projects/{{ env['project_number'] }}/global/networks/default
+      accessConfigs:
+      - type: ONE_TO_ONE_NAT
+    labels:
+      autostop: true
