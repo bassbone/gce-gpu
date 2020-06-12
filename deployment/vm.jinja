@@ -13,7 +13,7 @@ resources:
         diskSizeGb: {{ properties['diskSizeGb'] }}
     guestAccelerators:
     - acceleratorType: projects/{{ env['project_number'] }}/zones/{{ properties['zone'] }}/acceleratorTypes/nvidia-tesla-t4
-      acceleratorCount: 1
+      acceleratorCount: {{ properties['gpuCount'] }}
     tags:
       items:
       - myip
