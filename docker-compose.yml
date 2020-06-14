@@ -1,0 +1,9 @@
+version: "2.3"
+services:
+  app:
+    build: app
+    environment:
+      - LOCAL_UID
+      - LOCAL_GID
+    runtime: nvidia
+    restart: always
