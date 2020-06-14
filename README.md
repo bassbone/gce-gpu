@@ -44,7 +44,7 @@ gcloud compute ssh vm01 --zone=us-central1-b --command="sh gce-gpu/setup/docker-
 ## docker build & up
 
 ```
-gcloud compute ssh vm01 --zone=us-central1-b --command="cd gce-gpu; "
+gcloud compute ssh vm01 --zone=us-central1-b --command="cd gce-gpu; make start"
 ```
 
 ## (git update)
