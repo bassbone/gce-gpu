@@ -1,7 +1,7 @@
 SERVICE := app
 
 start:
-	./startup.sh $(SERVICE)
+	sh ./startup.sh $(SERVICE)
 	docker-compose logs $(SERVICE)
 stop:
 	docker-compose stop $(SERVICE)
