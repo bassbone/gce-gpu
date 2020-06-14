@@ -1,0 +1,12 @@
+resources:
+- name: myip
+  type: compute.v1.firewall
+  properties:
+    allowed:
+    - IPProtocol: tcp
+      ports:
+      - 4000
+    sourceRanges:
+    - {{ properties['sourceIp'] }}
+    targetTags:
+    - myip
