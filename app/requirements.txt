@@ -1,3 +1,9 @@
 numpy
 pandas
 jupyter
+scikit-learn
+scipy
+seaborn
+torch
+torchvision
+
